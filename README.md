@@ -17,6 +17,10 @@ com o framework Django e banco de dados SQLite(integrado ao Django).
 
 ## Instalação
 
+Observação:
+O banco de dados utilizado no projeto foi o SQLite, padrão do Django e integrado neste repositório, não sendo
+necessário scripts para criação de banco de dados para executar o projeto.
+
 Baixe ou clone este repositório:
 
 ```bash
