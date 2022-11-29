@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- start title area -->
+{% block title %}
+{% if contact.manager == request.user %}
+Confirme para excluir o contato: {{contact.name}}
+{% else %}
+Ops! Você não tem acesso a esse conteúdo!
+{% endif %}
+{% endblock %}
+<!-- end title area -->
+
+<!-- start body area -->
+{% block content %}
+{% if contact.manager == request.user %}
+<br />
+  <!-- Main Section -->
+  <div class="container">
+    <h2 class="heading font-weight-light text-center">Confirme para deletar o contato '{{contact.name}}'</h2>
+    <hr />
+  </div>
+  
+  <div class="container offset-4 col-md-4 card p-2">
+    <div class="container main-part">
+        <!-- Card for details -->
+        {% if contact %}
+            {% include 'card.html' %}
+            {% block add_delete %}
+          {% endblock %}
+        {% else %}
+          <p class="text-center">Você não tem contatos ainda!</p>
+        {% endif %}        
+    </div>
+
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" class="w-100 btn text-center text-light bg-danger" value="Delete">
+    </form>
+  </div>
+  <!-- Main Section ends-->
+  {% else %}
+  <div class="container">
+    <h2 class="font-weight-light text-center"> Opps..! you don't have access this content. <br>
+      Goto <a href="{% url 'home' %}">Home page</a>.
+    </h2>
+    <hr />
+  </div>
+  {% endif %}
+
+{% endblock content %}
+
+
+    

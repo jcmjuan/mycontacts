@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Home | Contacts
+{% endblock %}
+
+{% block content %}
+
+
+  <!-- Main Section -->
+  <div class="container">
+    <h3 class="heading font-weight-light">Seus contatos</h3>
+    <hr />
+  </div>
+  <div class="container main-part">
+    <!-- Card for details -->
+    {% if contact %}
+      {% for contact in contact %}
+        {% include 'card.html' %}
+      {% endfor %}
+    {% else %}
+      <p class="text-center">Você ainda não tem nenhum contato!</p>
+    {% endif %}
+    
+  </div>
+  <!-- Main Section ends-->
+
+
+{% endblock content %}

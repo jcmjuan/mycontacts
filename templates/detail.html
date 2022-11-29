@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- start title -->
+{% block title %}
+{% if contact.manager == request.user %}
+ Detalhes de {{contact.nome}}
+{% else %}
+Ops! Você não tem acesso a esse conteúdo!.
+{% endif %}
+{% endblock %}
+<!-- end title area -->
+
+<!-- start body content -->
+{% block content %}
+
+{% if contact.manager == request.user %}
+<br />
+<!-- Main Section -->
+<div class="container">
+  <h2 class="font-weight-light text-center">Detalhes de {{contact.nome}} </h2>
+  <hr />
+</div>
+<div class="container main-part">
+  <!-- Card for details -->
+  {% if contact %}
+      {% include 'card.html' %}
+  {% else %}
+    <h3 class="heading text-center">404 não encontrado</h3><hr>
+  {% endif %}
+  
+</div>
+<!-- Main Section ends-->
+<div class="container offset-4 col-md-4">
+  <p class="text-center"><strong class="text-success">Contato atualizado: </strong> {{contact.datetime|timesince}} atrás</p>
+  <p class="text-center text-light">
+  <a href="{% url 'contactupdate' contact.id %}" class="px-4 m-1 btn btn-success">
+    <i class="fas fa-edit"></i> &nbsp; Atualizar
+  </a>
+  <a href="{% url 'contactDelete' contact.id %}" class="px-4 btn btn-danger">
+    <i class="fas fa-trash-alt"></i> &nbsp; Excluir
+  </a>
+</p>
+</div>
+
+{% else %}
+<div class="container">
+  <h2 class="font-weight-light text-center"> Ops! Você não tem acesso a esse conteúdo! <br>
+    Goto <a href="{% url 'home' %}">Home page</a>.
+  </h2>
+  <hr />
+</div>
+{% endif %}
+
+{% endblock content %}

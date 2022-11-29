@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Criar novo contato
+{% endblock %}
+
+{% block content %}
+
+<br />
+  <!-- Main Section -->
+  <div class="container">
+    <h2 class="heading font-weight-light text-center">Criar novo contato</h2>
+    <hr />
+  </div>
+  <div class="container offset-4 col-md-4 card my-5 p-4">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" class="w-100 btn text-center text-light bg-info" value="Criar contato">
+    </form>
+  </div>
+  <!-- Main Section ends-->
+
+
+{% endblock content %}
+
+
+    

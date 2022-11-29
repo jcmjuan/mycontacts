@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- start title area -->
+{% block title %}
+  {% if contact %}
+    Found {{search_query}}'s details
+  {% else %}
+    you searching {{search_query}}'s details
+  {% endif %}
+{% endblock %}
+<!-- end title area -->
+
+<!-- start main area -->
+{% block content %}
+<br />
+  <!-- Main Section -->
+  <div class="container">
+    <h2 class="heading font-weight-light text-center">Resultados da busca por: "{{search_query}}" </h2>
+    <hr />
+  </div>
+  <div class="container main-part">
+    <!-- Card for details -->
+    {% if contact %}
+      {% for contact in contact %}
+        {% include 'card.html' %}
+      {% endfor %}
+    {% else %}
+      <p class="text-center">Nenhum resultado encotrado para: "{{search_query}}"</p>
+    {% endif %}
+    
+  </div>
+  <!-- Main Section ends-->
+
+
+{% endblock content %}

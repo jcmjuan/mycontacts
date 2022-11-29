@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Create Your Account
+{% endblock %}
+
+{% block content %}
+
+<br />
+  <!-- Main Section -->
+  <div class="container offset-4 col-md-4 card my-5 p-4"> 
+    <p class="text-center ">
+        Você fez logout da sua conta com sucesso! <br>
+        Por gentileza, <a href="{% url 'login' %}">Clique aqui para logar novamente</a>.
+    </p>
+    <hr />
+    
+  </div>
+  <!-- Main Section ends-->
+
+
+{% endblock content %}
+
+
+    
