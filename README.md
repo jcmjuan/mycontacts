@@ -17,9 +17,16 @@ com o framework Django e banco de dados SQLite(integrado ao Django).
 
 ## Instalação
 
-Observação:
+**Observação:**
 O banco de dados utilizado no projeto foi o SQLite, padrão do Django e integrado neste repositório, não sendo
 necessário scripts para criação de banco de dados para executar o projeto.
+
+**Usuário administrador do Django:** teste  
+**Senha do usuário administrador do Django:** teste
+
+Usuário de conta já cadastrado no sistema e com alguns contatos registrados para testes:  
+**Usuário:** juan  
+**Senha:** 123456teste
 
 Baixe ou clone este repositório:
 
